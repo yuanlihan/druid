@@ -218,7 +218,7 @@ public abstract class SQLMetadataConnector implements MetadataStorageConnector
             StringUtils.format(
                 "CREATE TABLE %1$s (\n"
                 + "  id VARCHAR(255) NOT NULL,\n"
-                        + "  dataSource VARCHAR(255) %4$s NOT NULL,\n"
+                + "  dataSource VARCHAR(255) %4$s NOT NULL,\n"
                 + "  created_date VARCHAR(255) NOT NULL,\n"
                 + "  start VARCHAR(255) NOT NULL,\n"
                 + "  %3$send%3$s VARCHAR(255) NOT NULL,\n"
@@ -228,8 +228,8 @@ public abstract class SQLMetadataConnector implements MetadataStorageConnector
                 + "  payload %2$s NOT NULL,\n"
                 + "  PRIMARY KEY (id),\n"
                 + "  UNIQUE (sequence_name_prev_id_sha1)\n"
-                        + ")",
-                    tableName, getPayloadType(), getQuoteString(), getCollation()
+                + ")",
+                tableName, getPayloadType(), getQuoteString(), getCollation()
             ),
             StringUtils.format(
                 "CREATE INDEX idx_%1$s_datasource_end ON %1$s(dataSource, %2$send%2$s)",
@@ -251,13 +251,13 @@ public abstract class SQLMetadataConnector implements MetadataStorageConnector
         ImmutableList.of(
             StringUtils.format(
                 "CREATE TABLE %1$s (\n"
-                        + "  dataSource VARCHAR(255) %3$s NOT NULL,\n"
+                + "  dataSource VARCHAR(255) %3$s NOT NULL,\n"
                 + "  created_date VARCHAR(255) NOT NULL,\n"
                 + "  commit_metadata_payload %2$s NOT NULL,\n"
                 + "  commit_metadata_sha1 VARCHAR(255) NOT NULL,\n"
                 + "  PRIMARY KEY (dataSource)\n"
-                        + ")",
-                    tableName, getPayloadType(), getCollation()
+                + ")",
+                tableName, getPayloadType(), getCollation()
             )
         )
     );
@@ -271,7 +271,7 @@ public abstract class SQLMetadataConnector implements MetadataStorageConnector
             StringUtils.format(
                 "CREATE TABLE %1$s (\n"
                 + "  id VARCHAR(255) NOT NULL,\n"
-                        + "  dataSource VARCHAR(255) %4$s NOT NULL,\n"
+                + "  dataSource VARCHAR(255) %4$s NOT NULL,\n"
                 + "  created_date VARCHAR(255) NOT NULL,\n"
                 + "  start VARCHAR(255) NOT NULL,\n"
                 + "  %3$send%3$s VARCHAR(255) NOT NULL,\n"
@@ -280,8 +280,8 @@ public abstract class SQLMetadataConnector implements MetadataStorageConnector
                 + "  used BOOLEAN NOT NULL,\n"
                 + "  payload %2$s NOT NULL,\n"
                 + "  PRIMARY KEY (id)\n"
-                        + ")",
-                    tableName, getPayloadType(), getQuoteString(), getCollation()
+                + ")",
+                tableName, getPayloadType(), getQuoteString(), getCollation()
             ),
             StringUtils.format("CREATE INDEX idx_%1$s_used ON %1$s(used)", tableName),
             StringUtils.format(
@@ -301,12 +301,12 @@ public abstract class SQLMetadataConnector implements MetadataStorageConnector
             StringUtils.format(
                 "CREATE TABLE %1$s (\n"
                 + "  id VARCHAR(255) NOT NULL,\n"
-                        + "  dataSource VARCHAR(255) %3$s NOT NULL,\n"
+                + "  dataSource VARCHAR(255) %3$s NOT NULL,\n"
                 + "  version VARCHAR(255) NOT NULL,\n"
                 + "  payload %2$s NOT NULL,\n"
                 + "  PRIMARY KEY (id)\n"
-                        + ")",
-                    tableName, getPayloadType(), getCollation()
+                + ")",
+                tableName, getPayloadType(), getCollation()
             ),
             StringUtils.format("CREATE INDEX idx_%1$s_datasource ON %1$s(dataSource)", tableName)
         )
@@ -339,13 +339,13 @@ public abstract class SQLMetadataConnector implements MetadataStorageConnector
                 "CREATE TABLE %1$s (\n"
                 + "  id VARCHAR(255) NOT NULL,\n"
                 + "  created_date VARCHAR(255) NOT NULL,\n"
-                        + "  datasource VARCHAR(255) %3$s NOT NULL,\n"
+                + "  datasource VARCHAR(255) %3$s NOT NULL,\n"
                 + "  payload %2$s NOT NULL,\n"
                 + "  status_payload %2$s NOT NULL,\n"
                 + "  active BOOLEAN NOT NULL DEFAULT FALSE,\n"
                 + "  PRIMARY KEY (id)\n"
-                        + ")",
-                    tableName, getPayloadType(), getCollation()
+                + ")",
+                tableName, getPayloadType(), getCollation()
             ),
             StringUtils.format("CREATE INDEX idx_%1$s_active_created_date ON %1$s(active, created_date)", tableName)
         )
